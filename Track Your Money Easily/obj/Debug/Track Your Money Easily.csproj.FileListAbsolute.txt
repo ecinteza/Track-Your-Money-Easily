@@ -1,0 +1,16 @@
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\bin\Debug\Track Your Money Easily.exe.config
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\bin\Debug\Track Your Money Easily.exe
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\bin\Debug\Track Your Money Easily.pdb
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.AssemblyReference.cache
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.SuggestedBindingRedirects.cache
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Properties.Resources.resources
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.GenerateResource.cache
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.CoreCompileInputs.cache
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track Your Money Easily.exe
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track Your Money Easily.pdb
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Menu.resources
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Salary.resources
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Profile.resources
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.monthly.resources
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Bills.resources
+C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Reports.resources
