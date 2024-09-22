@@ -1,48 +1,81 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Newtonsoft.Json;
 
 namespace Track_Your_Money_Easily
 {
     public partial class Bills : Form
     {
-        public Bills()
+        private string username;
+        private const string baseUrl = "http://localhost:5000";
+
+        public Bills(Control parent, string username)
         {
             InitializeComponent();
+            this.username = username;
+
             label4.Text = "";
             textBox3.Text = DateTime.Now.ToString("dd");
             textBox4.Text = DateTime.Now.ToString("MM");
             textBox5.Text = DateTime.Now.ToString("yyyy");
-            string path = @".\Bills.txt";
-            using (StreamReader read = new StreamReader(path))
-            {
-                string line;
-                while ((line = read.ReadLine()) != null)
-                {
-                    if (line != string.Empty)
-                    {
-                        string[] items = line.Split('|');
-                        ListViewItem item = new ListViewItem(items[0]);
-                        item.SubItems.Add(items[1] + "/" + items[2] + "/" + items[3]);
-                        item.SubItems.Add(items[4]);
-                        item.SubItems.Add(items[5]);
 
+            FetchBills();
+
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Size = parent.Size;
+            this.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+
+            button1.Click += button1_Click;
+            button2.Click += button2_Click;
+            button3.Click += button3_Click;
+            button4.Click += button4_Click;
+        }
+
+        private async void FetchBills()
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage response = await client.GetAsync($"{baseUrl}/bills?user_name={username}");
+                    response.EnsureSuccessStatusCode();
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    var bills = JsonConvert.DeserializeObject<List<Bill>>(responseBody);
+
+                    listView1.Items.Clear(); // Clear previous entries
+                    foreach (var bill in bills)
+                    {
+                        ListViewItem item = new ListViewItem(bill.name);  // Ensure case sensitivity
+                        item.SubItems.Add(bill.price.ToString());
+                        item.SubItems.Add(bill.date.ToString("yyyy-MM-dd"));
+                        item.Tag = bill.ID; // Store the ID in the Tag property
                         listView1.Items.Add(item);
                     }
                 }
             }
+            catch (HttpRequestException ex) when (ex.Message.Contains("404"))
+            {
+                // No bills found for the user
+                listView1.Items.Clear();
+                label4.Text = "No bills found.";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching bills: " + ex.Message);
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private string GenerateID(string name, string userName, string date, int price)
+        {
+            return $"{name}-{userName}-{date}-{price}";
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
         {
             if (!textBox1.Text.Any(Char.IsLetter))
             {
@@ -70,10 +103,10 @@ namespace Track_Your_Money_Easily
                     bool isNumeric = int.TryParse(textBox2.Text, out price);
                     if (isNumeric && price > 0)
                     {
-                        if (textBox3.Text != string.Empty && textBox4.Text != string.Empty && textBox5.Text != string.Empty) 
+                        if (textBox3.Text != string.Empty && textBox4.Text != string.Empty && textBox5.Text != string.Empty)
                         {
                             DateTime temp;
-                            if (!DateTime.TryParse(textBox3.Text + "/" + textBox4.Text + "/" + textBox5.Text, out temp))
+                            if (!DateTime.TryParse($"{textBox5.Text}-{textBox4.Text}-{textBox3.Text}", out temp))
                             {
                                 label4.Text = "Invalid date.";
                                 textBox3.Text = DateTime.Now.ToString("dd");
@@ -82,8 +115,7 @@ namespace Track_Your_Money_Easily
                                 textBox1.Focus();
                                 return;
                             }
-                            
-                            
+
                             if (temp > DateTime.Now)
                             {
                                 label4.Text = "You cannot put a date that is in the future.";
@@ -94,85 +126,76 @@ namespace Track_Your_Money_Easily
                                 return;
                             }
 
-                            string path = @".\Bills.txt";
-                            var lastline = "";
-                            var id = "";
+                            var newBill = new Bill
+                            {
+                                date = temp,
+                                name = textBox1.Text,
+                                price = price,
+                                user_name = username,
+                                ID = GenerateID(textBox1.Text, username, temp.ToString("yyyy-MM-dd"), price)
+                            };
+
                             try
                             {
-                                var linez = File.ReadAllLines(path);
-                                foreach(string line in linez)
+                                using (HttpClient client = new HttpClient())
                                 {
-                                    if (line.Length > 1) lastline = line;
-                                }
-                                id = (int.Parse(lastline.Split('|')[0]) + 1).ToString();
-                            } catch
-                            {
-                                id = "1";
-                            }
-                            using (StreamWriter sw = File.AppendText(path))
-                            {
+                                    var json = JsonConvert.SerializeObject(newBill);
+                                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                                    HttpResponseMessage response = await client.PostAsync($"{baseUrl}/bills", content);
+                                    response.EnsureSuccessStatusCode();
 
-                                sw.WriteLine('\n' + id + "|" + textBox3.Text + "|" + textBox4.Text + "|" + textBox5.Text + "|" + textBox1.Text + "|" + textBox2.Text + '\n');
+                                    label4.Text = $"{textBox1.Text} of price {textBox2.Text} added";
+                                    ListViewItem item = new ListViewItem(textBox1.Text);
+                                    item.SubItems.Add(textBox2.Text);
+                                    item.SubItems.Add(temp.ToString("yyyy-MM-dd"));
+                                    item.Tag = newBill.ID; // Store the ID in the Tag property
+                                    listView1.Items.Add(item);
+                                    textBox1.Clear();
+                                    textBox2.Clear();
+                                    textBox1.Focus();
+                                }
                             }
-                            label4.Text = textBox1.Text + " of price " + textBox2.Text + " added";
-                            ListViewItem item = new ListViewItem(id);
-                            item.SubItems.Add(textBox3.Text + "/" + textBox4.Text + "/" + textBox5.Text);
-                            item.SubItems.Add(textBox1.Text);
-                            item.SubItems.Add(textBox2.Text);
-                            listView1.Items.Add(item);
-                            textBox1.Clear();
-                            textBox2.Clear();
-                            textBox1.Focus();
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error adding bill entry: " + ex.Message);
+                            }
                         }
-                        
-                    } else
+
+                    }
+                    else
                     {
                         label4.Text = "Invalid price.";
                     }
                 }
-            } else
+            }
+            else
             {
                 label4.Text = "No name specified.";
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                string line_to_delete = listView1.SelectedItems[0].Text + "|" + listView1.SelectedItems[0].SubItems[1].Text.Replace("/", "|") + "|" + listView1.SelectedItems[0].SubItems[2].Text + "|" + listView1.SelectedItems[0].SubItems[3].Text;
-                label4.Text = listView1.SelectedItems[0].SubItems[2].Text + " of price " + listView1.SelectedItems[0].SubItems[3].Text + " from " + listView1.SelectedItems[0].SubItems[1].Text + " removed";
-                string path = @".\Bills.txt";
-                List<string> lines = new List<string>();
-                int del = 0;
-                string[] allines = File.ReadAllLines(path);
-                foreach (string line in allines)
+                var selectedItem = listView1.SelectedItems[0];
+                string selectedID = selectedItem.Tag.ToString();
+
+                try
                 {
-                    string theline = line;
-                    if (theline.Length < 1)
+                    using (HttpClient client = new HttpClient())
                     {
-                        continue;
-                    }
-                    if (String.Compare(theline, line_to_delete) == 0)
-                    {
-                        del = 1;
-                        continue;
-                    }
+                        HttpResponseMessage response = await client.DeleteAsync($"{baseUrl}/bills/{selectedID}");
+                        response.EnsureSuccessStatusCode();
 
-                    if (del == 1)
-                    {
-                        string id = theline.Split('|')[0];
-                        theline = theline.Replace(id + "|", (int.Parse(theline.Split('|')[0])-1).ToString() + "|");
-                        if (listView1.Items.Count > 1)
-                            listView1.FindItemWithText(id).Text = (int.Parse(id) - 1).ToString();
-                        
+                        label4.Text = $"{selectedItem.Text} removed";
+                        listView1.Items.Remove(selectedItem);
                     }
-
-                    lines.Add(theline);
                 }
-
-                File.WriteAllLines(path, lines);
-                listView1.Items.Remove(listView1.SelectedItems[0]);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting bill entry: " + ex.Message);
+                }
             }
             else
             {
@@ -180,123 +203,97 @@ namespace Track_Your_Money_Easily
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
 
-            string path = @".\Bills.txt";
-            using (StreamReader read = new StreamReader(path))
+            try
             {
-                if (textBox8.Text != string.Empty && (int.Parse(textBox8.Text) <=0 || int.Parse(textBox8.Text)>31))
+                using (HttpClient client = new HttpClient())
                 {
-                    label4.Text = "Invalid day in filter.";
-                    return;
-                }
-                if (textBox7.Text != string.Empty && (int.Parse(textBox7.Text) <= 0 || int.Parse(textBox7.Text) > 12))
-                {
-                    label4.Text = "Invalid month in filter.";
-                    return;
-                }
-                if (textBox6.Text != string.Empty && (int.Parse(textBox6.Text) <= 1970 || int.Parse(textBox6.Text) > int.Parse(DateTime.Now.ToString("yyyy"))))
-                {
-                    label4.Text = "Invalid year in filter.";
-                    return;
-                }
-                string line;
-                while ((line = read.ReadLine()) != null)
-                {
-                    if (line != string.Empty)
+                    var query = new StringBuilder($"{baseUrl}/bills/filter?user_name={username}");
+
+                    if (!string.IsNullOrEmpty(textBox8.Text))
                     {
-                        string[] items = line.Split('|');
-
-                        if (textBox8.Text != string.Empty && textBox7.Text != string.Empty && textBox6.Text != string.Empty)
+                        int day;
+                        if (int.TryParse(textBox8.Text, out day) && day > 0 && day <= 31)
                         {
-                            if (items[1] == textBox8.Text && items[2] == textBox7.Text && items[3] == textBox6.Text)
-                            {
-                                ListViewItem item = new ListViewItem(items[0]);
-                                item.SubItems.Add(items[1] + "/" + items[2] + "/" + items[3]);
-                                item.SubItems.Add(items[4]);
-                                item.SubItems.Add(items[5]);
-
-                                listView1.Items.Add(item);
-                            }
+                            query.Append($"&day={day}");
                         }
-
-                        else if (textBox7.Text != string.Empty && textBox6.Text != string.Empty)
-                        {
-                            if (items[2] == textBox7.Text && items[3] == textBox6.Text && textBox8.Text == string.Empty)
-                            {
-                                ListViewItem item = new ListViewItem(items[0]);
-                                item.SubItems.Add(items[1] + "/" + items[2] + "/" + items[3]);
-                                item.SubItems.Add(items[4]);
-                                item.SubItems.Add(items[5]);
-
-                                listView1.Items.Add(item);
-                            }
-                        }
-
-                        else if (textBox7.Text != string.Empty && textBox8.Text == string.Empty)
-                        {
-                            if (items[2] == textBox7.Text)
-                            {
-                                ListViewItem item = new ListViewItem(items[0]);
-                                item.SubItems.Add(items[1] + "/" + items[2] + "/" + items[3]);
-                                item.SubItems.Add(items[4]);
-                                item.SubItems.Add(items[5]);
-
-                                listView1.Items.Add(item);
-                            }
-                        }
-
-                        else if (textBox6.Text != string.Empty && textBox8.Text == string.Empty)
-                        {
-                            if (items[3] == textBox6.Text)
-                            {
-                                ListViewItem item = new ListViewItem(items[0]);
-                                item.SubItems.Add(items[1] + "/" + items[2] + "/" + items[3]);
-                                item.SubItems.Add(items[4]);
-                                item.SubItems.Add(items[5]);
-
-                                listView1.Items.Add(item);
-                            }
-                        }
-
                         else
                         {
-                            label4.Text = "Invalid Filter. Only [DD/MM/YYYY | MM/YYYY | MM | YYYY] formats allowed.";
+                            label4.Text = "Invalid day in filter.";
                             return;
                         }
                     }
+
+                    if (!string.IsNullOrEmpty(textBox7.Text))
+                    {
+                        int month;
+                        if (int.TryParse(textBox7.Text, out month) && month > 0 && month <= 12)
+                        {
+                            query.Append($"&month={month}");
+                        }
+                        else
+                        {
+                            label4.Text = "Invalid month in filter.";
+                            return;
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(textBox6.Text))
+                    {
+                        int year;
+                        if (int.TryParse(textBox6.Text, out year) && year > 1970 && year <= DateTime.Now.Year)
+                        {
+                            query.Append($"&year={year}");
+                        }
+                        else
+                        {
+                            label4.Text = "Invalid year in filter.";
+                            return;
+                        }
+                    }
+
+                    HttpResponseMessage response = await client.GetAsync(query.ToString());
+                    response.EnsureSuccessStatusCode();
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    var bills = JsonConvert.DeserializeObject<List<Bill>>(responseBody);
+
+                    foreach (var bill in bills)
+                    {
+                        ListViewItem item = new ListViewItem(bill.name);  // Ensure case sensitivity
+                        item.SubItems.Add(bill.price.ToString());
+                        item.SubItems.Add(bill.date.ToString("yyyy-MM-dd"));
+                        item.Tag = bill.ID; // Store the ID in the Tag property
+                        listView1.Items.Add(item);
+                    }
+
+                    label4.Text = "Filter applied";
                 }
-                label4.Text = "Filter applied";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error filtering bills: " + ex.Message);
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            FetchBills();
             label4.Text = "Filter removed";
-            textBox6.Text = "";
-            textBox7.Text = "";
-            textBox8.Text = "";
-            string path = @".\Bills.txt";
-            using (StreamReader read = new StreamReader(path))
-            {
-                string line;
-                while ((line = read.ReadLine()) != null)
-                {
-                    if (line != string.Empty)
-                    {
-                        string[] items = line.Split('|');
-                        ListViewItem item = new ListViewItem(items[0]);
-                        item.SubItems.Add(items[1] + "/" + items[2] + "/" + items[3]);
-                        item.SubItems.Add(items[4]);
-                        item.SubItems.Add(items[5]);
+        }
 
-                        listView1.Items.Add(item);
-                    }
-                }
-            }
+        public class Bill
+        {
+            public DateTime date { get; set; }
+            public string name { get; set; }
+            public int price { get; set; }
+            public string user_name { get; set; }
+            public string ID { get; set; }
         }
     }
 }

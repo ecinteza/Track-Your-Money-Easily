@@ -14,3 +14,115 @@ C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easi
 C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.monthly.resources
 C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Bills.resources
 C:\Users\Emil\Desktop\TP\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Reports.resources
+C:\Users\tobyy\Desktop\Track Your Money Easily\bin\Debug\Track Your Money Easily.exe.config
+C:\Users\tobyy\Desktop\Track Your Money Easily\bin\Debug\Track Your Money Easily.exe
+C:\Users\tobyy\Desktop\Track Your Money Easily\bin\Debug\Track Your Money Easily.pdb
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.AssemblyReference.cache
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.SuggestedBindingRedirects.cache
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Bills.resources
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Menu.resources
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Monthly.resources
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Profile.resources
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Reports.resources
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Salary.resources
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Properties.Resources.resources
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.GenerateResource.cache
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.CoreCompileInputs.cache
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track Your Money Easily.exe
+C:\Users\tobyy\Desktop\Track Your Money Easily\obj\Debug\Track Your Money Easily.pdb
+D:\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.AssemblyReference.cache
+D:\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.SuggestedBindingRedirects.cache
+D:\Track Your Money Easily\obj\Debug\Track Your Money Easily.exe
+D:\Track Your Money Easily\obj\Debug\Track Your Money Easily.pdb
+D:\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Bills.resources
+D:\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Menu.resources
+D:\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Monthly.resources
+D:\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Profile.resources
+D:\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Reports.resources
+D:\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Salary.resources
+D:\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Properties.Resources.resources
+D:\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.GenerateResource.cache
+D:\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.CoreCompileInputs.cache
+D:\Track Your Money Easily\bin\Debug\Track Your Money Easily.exe.config
+D:\Track Your Money Easily\bin\Debug\Track Your Money Easily.exe
+D:\Track Your Money Easily\bin\Debug\Track Your Money Easily.pdb
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\Track Your Money Easily.exe.config
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\Track Your Money Easily.exe
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\Track Your Money Easily.pdb
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.AssemblyReference.cache
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.SuggestedBindingRedirects.cache
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Bills.resources
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Login.resources
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Menu.resources
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Monthly.resources
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Profile.resources
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Reports.resources
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Salary.resources
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Properties.Resources.resources
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.GenerateResource.cache
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.CoreCompileInputs.cache
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track Your Money Easily.exe
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track Your Money Easily.pdb
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.CopyComplete
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\RestSharp.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Buffers.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Memory.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Text.Json.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.ValueTuple.dll
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\RestSharp.xml
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Buffers.xml
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Memory.xml
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Text.Json.xml
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\tobyy\Desktop\Licenta\Track Your Money Easily\bin\Debug\System.ValueTuple.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\Track Your Money Easily.exe.config
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\Track Your Money Easily.exe
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\Track Your Money Easily.pdb
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\RestSharp.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Buffers.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Memory.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Text.Json.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.ValueTuple.dll
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\RestSharp.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Buffers.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Memory.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Text.Json.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\bin\Debug\System.ValueTuple.xml
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.AssemblyReference.cache
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.SuggestedBindingRedirects.cache
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Bills.resources
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Login.resources
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Menu.resources
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Monthly.resources
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Profile.resources
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Reports.resources
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Salary.resources
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track_Your_Money_Easily.Properties.Resources.resources
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.GenerateResource.cache
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.CoreCompileInputs.cache
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track Your Money Easily.csproj.CopyComplete
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track Your Money Easily.exe
+C:\Users\tobyy\Desktop\ll\Track Your Money Easily\obj\Debug\Track Your Money Easily.pdb
